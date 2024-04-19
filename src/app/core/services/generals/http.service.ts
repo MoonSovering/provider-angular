@@ -19,9 +19,12 @@ export class HttpService {
   }
 
   get headers(): HttpHeaders {
-    return new HttpHeaders()
+    if(this.token != null){
+      return new HttpHeaders()
       .append('Content-Type', 'application/json')
       .append('Authorization', `Bearer ${this.token}`);
+    }
+    return null;
   }
 
   get<T>(url: string): Observable<T> {

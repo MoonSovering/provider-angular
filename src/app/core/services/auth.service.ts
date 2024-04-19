@@ -18,6 +18,7 @@ export class AuthService {
 
   userLogin(formData): Observable<IUserLogin>{
     const url = URL_RESOURCES.login;
+    console.log(url)
     const user = this.httpService.post<IUserLogin>(url, formData)
     .pipe(
       map((result) => this.mapper.map(result) ),

@@ -42,6 +42,5 @@ export class LoginFormComponent implements OnInit{
       return;
     }
     this.formValue.emit(this.form.value);
-    console.log(this.form.value)
   }
 }

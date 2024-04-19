@@ -13,7 +13,7 @@ export class LoginState {
 
   store() {
     return {
-      users: this.factory.state(this.user$),
+      user: this.factory.state(this.user$),
     }
   }
 }
