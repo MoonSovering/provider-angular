@@ -1,0 +1,12 @@
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+<app-title title="Login"></app-title>
+
+<app-label name="username">
+  <app-input type="text" placeholder="Yuna" formControlName="username"></app-input>
+</app-label>
+<app-label name="Password">
+  <app-input type="password" placeholder="*********" formControlName="password"></app-input>
+</app-label>
+<app-button label="Login" type="submit"></app-button>
+</form>
