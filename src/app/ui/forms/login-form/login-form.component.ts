@@ -1,9 +1,9 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TitleComponent } from '../../elements/title/title.component';
 import { InputComponent } from '../../elements/input/input.component';
 import { LabelComponent } from '../../elements/label/label.component';
 import { ButtonComponent } from '../../elements/button/button.component';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ILoginUser } from '../../../core/models/interfaces/login-user.interface';
 
 @Component({
@@ -42,5 +42,6 @@ export class LoginFormComponent implements OnInit{
       return;
     }
     this.formValue.emit(this.form.value);
+    console.log(this.form.value)
   }
 }
