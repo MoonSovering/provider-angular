@@ -8,7 +8,6 @@ import { IUserRegister } from '../../core/models/user-register.model';
   standalone: true,
   imports: [RegisterFormComponent],
   templateUrl: './register-container.component.html',
-  styleUrl: './register-container.component.css'
 })
 export class RegisterContainerComponent {
   @Input() userData: IUserRegister;

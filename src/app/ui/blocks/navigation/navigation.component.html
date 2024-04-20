@@ -1,0 +1,11 @@
+
+
+<nav>
+  <ul>
+    @for (button of items; track $index) {
+      <li>
+        <app-linked-button [item]="button"></app-linked-button>
+      </li>
+    }
+  </ul>
+</nav>

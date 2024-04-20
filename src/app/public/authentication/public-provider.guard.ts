@@ -14,7 +14,7 @@ export class PublicProviderGuard implements CanActivate {
     state: RouterStateSnapshot): MaybeAsync<GuardResult> {
     return this.authService.verifyToken().pipe(
       map(() => {
-        this.route.navigate(['/']);
+        this.route.navigate(['/provider']);
         return false;
       }),
       catchError(() => of(true))

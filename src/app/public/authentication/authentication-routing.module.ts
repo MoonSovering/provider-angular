@@ -26,7 +26,7 @@ const routes: Routes = [
         component: RegisterContainerComponent,
         outlet: 'auth-form'
       }
-    ], canActivate: [PublicProviderGuard]
+    ]
   },
   {
     path: '**',

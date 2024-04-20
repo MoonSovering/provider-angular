@@ -1,8 +1,7 @@
 
 <header>
   <app-logo></app-logo>
-  <app-button label="Functionality one"></app-button>
-  <app-button label="Functionality two"></app-button>
-  <app-button label="Functionality three"></app-button>
-  <app-button label="Functionality list of books"></app-button>
+  @for (button of linkedButton; track $index) {
+    <app-linked-button [item]="button"></app-linked-button>
+  }
 </header>

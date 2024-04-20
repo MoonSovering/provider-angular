@@ -1,7 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HomeLayoutComponent } from '../ui/layouts/home-layout/home-layout.component';
+import { HomeContainerComponent } from '../containers/home-container/home-container.component';
 
 const routes: Routes = [
+  {
+    path: '',
+    component: HomeLayoutComponent,
+    children: [
+      {
+        path: '',
+        component: HomeContainerComponent,
+        outlet: 'home-page'
+      }
+    ]
+  },
   {
     path: 'buy-product',
     loadChildren: () => import('./buy-product/buy-product.module')
@@ -19,7 +32,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'buy-product'
+    redirectTo: ''
   }
 ];
 
