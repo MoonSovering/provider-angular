@@ -2,11 +2,14 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
   <app-title title="Login"></app-title>
 
-  <app-label name="username">
+  <app-label name="Username">
     <app-input type="text" placeholder="Yuna" formControlName="username"></app-input>
+  </app-label>
+  <app-label name="Email">
+    <app-input type="email" placeholder="yuna@gmail.com" formControlName="email"></app-input>
   </app-label>
   <app-label name="Password">
     <app-input type="password" placeholder="*********" formControlName="password"></app-input>
   </app-label>
-  <app-button label="Login" type="submit"></app-button>
+  <app-button label="Register" type="submit"></app-button>
   </form>

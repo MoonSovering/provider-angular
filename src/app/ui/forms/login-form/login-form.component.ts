@@ -15,7 +15,7 @@ import { ILoginUser } from '../../../core/models/interfaces/login-user.interface
 })
 export class LoginFormComponent implements OnInit{
 
-  @Output() formValue = new EventEmitter<ILoginUser>();
+  @Output() loginValue = new EventEmitter<ILoginUser>();
 
   form: FormGroup = new FormGroup({
     username: new FormControl(''),
@@ -41,6 +41,6 @@ export class LoginFormComponent implements OnInit{
     if (this.form.invalid) {
       return;
     }
-    this.formValue.emit(this.form.value);
+    this.loginValue.emit(this.form.value);
   }
 }

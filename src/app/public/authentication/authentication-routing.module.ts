@@ -1,18 +1,30 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthLayoutComponent } from '../../ui/layouts/auth-layout/auth-layout.component';
-import { LoginFormComponent } from '../../ui/forms/login-form/login-form.component';
 import { LoginContainerComponent } from '../../containers/login-container/login-container.component';
+import { AuthLayoutComponent } from '../../ui/layouts/auth-layout/auth-layout.component';
+import { RegisterContainerComponent } from '../../containers/register-container/register-container.component';
+import { AuthenticationGuard } from './authentication.guard';
 
 const routes: Routes = [
   {
-    path: 'login',
-    component: LoginContainerComponent,
+    path: 'sign-in',
+    component: AuthLayoutComponent,
     children: [
       {
         path: '',
-        component: LoginFormComponent,
-        outlet: 'login'
+        component: LoginContainerComponent,
+        outlet: 'auth-form'
+      }
+    ], canActivate: [AuthenticationGuard]
+  },
+  {
+    path: 'sign-up',
+    component: AuthLayoutComponent,
+    children: [
+      {
+        path: '',
+        component: RegisterContainerComponent,
+        outlet: 'auth-form'
       }
     ]
   }

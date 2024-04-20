@@ -19,7 +19,7 @@ export class LoginContainerFacade {
   ){}
 
   user$(): Observable<ILoginUser> {
-    return this.loginState.store().user.$();
+    return this.loginState.loginStore().user.$();
   }
 
   initSubscriptions(): void {
@@ -32,7 +32,7 @@ export class LoginContainerFacade {
   getUser(formData: IUserLogin): void {
     this.subscriptions.add(
       this.AuthService.userLogin(formData).pipe(
-        tap(this.loginState.store().user.set.bind(this))
+        tap(this.loginState.loginStore().user.set.bind(this))
       ).subscribe()
     );
   }
