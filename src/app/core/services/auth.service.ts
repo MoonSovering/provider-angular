@@ -1,4 +1,4 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Observable, map, tap } from 'rxjs';
 import { HttpService } from './generals/http.service';
 import { LoginApiToUserMapper } from '../mappers/login-api-to-user.mapper';
@@ -9,7 +9,6 @@ import { IUserRegister } from '../models/user-register.model';
 import { RegisterApiToUserMapper } from '../mappers/register-api-to-user.mapper';
 import { VerifyTokenMapper } from '../mappers/verify-token.mapper';
 import { IVerifyToken } from '../models/interfaces/verify-token.interface';
-import { AuthStatus } from '../models/interfaces/auth-status';
 
 @Injectable({
   providedIn: 'root'
