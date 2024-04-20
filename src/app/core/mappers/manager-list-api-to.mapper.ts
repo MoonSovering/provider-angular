@@ -5,7 +5,7 @@ import { IManagerList } from "../models/manager-list.model";
 @Injectable({
   providedIn: 'root'
 })
-export class RegisterApiToUserMapper {
+export class ManagerListMapper {
   map(payload: any): IManagerList {
     return {
       products: [

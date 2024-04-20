@@ -5,7 +5,7 @@ import { IBuyProduct } from "../models/buy-product.model";
 @Injectable({
   providedIn: 'root'
 })
-export class RegisterApiToUserMapper {
+export class BuyProductMapper {
   map(payload: any): IBuyProduct {
     return {
       name: payload.name,

@@ -5,7 +5,7 @@ import { IBudgetManager } from "../models/budget-manager.model";
 @Injectable({
   providedIn: 'root'
 })
-export class RegisterApiToUserMapper {
+export class BudgetMapper {
   map(payload: any): IBudgetManager {
     return {
       products: [
