@@ -11,18 +11,5 @@ import { TitleComponent } from '../../elements/title/title.component';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-  navigationElements: LinkedButton[]= [
-    {
-      label: 'Buy products',
-      link: 'buy-product'
-    },
-    {
-      label: 'List Manager',
-      link: 'manager'
-    },
-    {
-      label: 'Budget manager',
-      link: 'budget'
-    }
-  ];
+  @Input() navigationElements: LinkedButton[];
 }

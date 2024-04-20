@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
-    path: '',
+    path: 'provider',
     loadChildren: () => import('./private/private.module')
       .then((module) => module.PrivateModule)
   },

@@ -11,7 +11,5 @@ import { ParagraphComponent } from '../../elements/paragraph/paragraph.component
   styleUrl: './footer.component.css'
 })
 export class FooterComponent {
-
   @Input() linkedLogo: LinkedLogo[];
-
 }

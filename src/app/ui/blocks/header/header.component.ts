@@ -11,14 +11,5 @@ import { LinkedButton } from '../../../core/models/interfaces/linked-button.inte
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  public linkedButton: LinkedButton[] = [
-    {
-      label: 'Home',
-      link: '/'
-    },
-    {
-      label: 'logout',
-      link: '/auth/sign-in'
-    }
-  ];
+  @Input() linkedButton: LinkedButton[];
 }
