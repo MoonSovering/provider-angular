@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginContainerComponent } from '../../containers/login-container/login-container.component';
 import { AuthLayoutComponent } from '../../ui/layouts/auth-layout/auth-layout.component';
 import { RegisterContainerComponent } from '../../containers/register-container/register-container.component';
-import { AuthenticationGuard } from './authentication.guard';
+import {  PublicProviderGuard } from './public-provider.guard';
 
 const routes: Routes = [
   {
@@ -15,7 +15,7 @@ const routes: Routes = [
         component: LoginContainerComponent,
         outlet: 'auth-form'
       }
-    ], canActivate: [AuthenticationGuard]
+    ], canActivate: [PublicProviderGuard]
   },
   {
     path: 'sign-up',
@@ -26,7 +26,11 @@ const routes: Routes = [
         component: RegisterContainerComponent,
         outlet: 'auth-form'
       }
-    ]
+    ], canActivate: [PublicProviderGuard]
+  },
+  {
+    path: '**',
+    redirectTo: 'sign-in'
   }
 ];
 

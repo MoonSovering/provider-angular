@@ -15,7 +15,7 @@ export class HttpService {
   ) { }
 
   get token(): string {
-    return this.storageService.get<string>('TOKEN');
+    return this.storageService.get<string>('token');
   }
 
   get headers(): HttpHeaders {
