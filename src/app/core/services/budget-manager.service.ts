@@ -4,6 +4,8 @@ import { BudgetMapper } from '../mappers/budget-manager-api-to.mapper';
 import { URL_RESOURCES } from '../resources/url.resources';
 import { Observable, map, tap } from 'rxjs';
 import { IBudgetManager } from '../models/budget-manager.model';
+import { IBudgetResponse } from '../models/budget-manager-response.model';
+import { ResponseBudgetMapper } from '../mappers/budget-response.mapper';
 
 @Injectable({
   providedIn: 'root'
@@ -12,10 +14,10 @@ export class BudgetManagerService {
 
   constructor(
     private readonly httpService: HttpService,
-    private readonly budgetMapper: BudgetMapper
+    private readonly budgetMapper: ResponseBudgetMapper
   ) { }
 
-  postBudgetManager(budgetData): Observable<IBudgetManager> {
+  postBudgetManager(budgetData): Observable<IBudgetResponse> {
     const url = URL_RESOURCES.budgetManager;
     const budget = this.httpService.post<IBudgetManager>(url, budgetData)
     .pipe(
