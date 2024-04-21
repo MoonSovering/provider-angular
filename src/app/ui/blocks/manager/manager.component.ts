@@ -46,5 +46,4 @@ deleteDisableButton(product: IBuyProduct): boolean {
     return !this.disabledProducts.has(product);
 }
 
-
 }

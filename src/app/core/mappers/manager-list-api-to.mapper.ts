@@ -1,19 +1,16 @@
 import { Injectable } from "@angular/core";
-import { IManagerList } from "../models/manager-list.model";
+import { IListResponseManager } from "../models/list-manager-response.model";
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ManagerListMapper {
-  map(payload: any): IManagerList {
-    return {
-      products: [
-        {
-          productId: payload.productId,
-          amount:    payload.amount
-        }
-      ]
-    }
+  map(payload: any[]): IListResponseManager[] {
+    return payload.map((product: any) => ({
+      name: product.name,
+      price:    product.price,
+      type: product.type
+    }));
   }
 }

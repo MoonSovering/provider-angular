@@ -1,1 +1,20 @@
-<p>shopping-cart works!</p>
+
+
+<main>
+  @if(products.length == 0){
+  <h1>You have your cart empty! Let's add some items!</h1>
+  <app-linked-button [item]="redirect"></app-linked-button>
+  }@else {
+    <ul>
+      @for (product of products; track $index) {
+        <app-list item="{{product.name}}"></app-list>
+        <app-list><app-paragraph [paragraph]="'Price: '"></app-paragraph></app-list>
+        <app-list item="{{updateItemPrice(getCartItemAmount(product) ,product.price.toString())}}"></app-list>
+        <label>{{ getCartItemAmount(product) }}</label>
+        <button (click)="increaseAmount(product)">+1</button>
+        <button [disabled]="deteleDisableButton(product)" (click)="decreaseAmount(product)">-1</button>
+      }
+    </ul>
+    <button (click)="emitCartItems()">Comprar!</button>
+  }
+</main>

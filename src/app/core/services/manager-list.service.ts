@@ -5,6 +5,7 @@ import { URL_RESOURCES } from '../resources/url.resources';
 import { Observable, map, tap } from 'rxjs';
 import { IBuyProduct } from '../models/buy-product.model';
 import { IManagerList } from '../models/manager-list.model';
+import { IListResponseManager } from '../models/list-manager-response.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,9 +17,9 @@ export class ManagerListService {
     private readonly managerListMapper: ManagerListMapper
   ) { }
 
-  postManagerList(managerListData): Observable<IManagerList> {
+  postManagerList(managerListData): Observable<IListResponseManager[]> {
     const url = URL_RESOURCES.managerList;
-    const managerList = this.httpService.post<IManagerList>(url, managerListData)
+    const managerList = this.httpService.post<IManagerList[]>(url, managerListData)
     .pipe(
       map((result) => this.managerListMapper.map(result)),
       tap( (result) => result)

@@ -18,7 +18,6 @@ export class RegisterContainerFacade {
   private subscriptions: Subscription;
 
   constructor(
-    private readonly managerListService: ManagerListService,
     private readonly getBooksService: GetBooksService,
     private readonly appState: AppState,
     private readonly pexelApiService: PexelApiService,
