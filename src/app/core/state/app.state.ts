@@ -5,6 +5,8 @@ import { LoginState } from "./login.state";
 import { ManagerListState } from "./manager-list.state";
 import { RegisterState } from "./register.state";
 import { RenderProductState } from "./render-product.state";
+import { saveProductsState } from "./all-product.state";
+import { RenderManyProductState } from "./render-many-product.state";
 
 
 @Injectable({
@@ -19,6 +21,8 @@ export class AppState {
     private readonly managerListState: ManagerListState,
     private readonly registerState: RegisterState,
     private readonly renderProductState: RenderProductState,
+    private readonly saveProductsState: saveProductsState,
+    private readonly renderManyProductState: RenderManyProductState
   ) { }
 
   get login() {
@@ -43,5 +47,12 @@ export class AppState {
 
   get managerList(){
     return this.managerListState.managerListStore();
+  }
+  get saveProducts() {
+    return this.saveProductsState.saveProducts();
+  }
+
+  get renderManyProduct(){
+    return this.renderManyProductState.productRenderStore();
   }
 }

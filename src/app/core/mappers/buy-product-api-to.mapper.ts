@@ -8,6 +8,7 @@ import { IBuyProduct } from "../models/buy-product.model";
 export class BuyProductMapper {
   map(payload: any): IBuyProduct {
     return {
+      id: payload.id,
       name: payload.name,
       price: payload.price,
       stock: payload.stock,

@@ -18,12 +18,12 @@ export class PexelApiService {
     private readonly getPexelMapper: GetPexelMapper
   ) { }
 
-  getImages(numberImages: string): Observable<IPexelImages>{
+  getImages(page: string): Observable<IPexelImages>{
     const header = new HttpHeaders()
     .append('Content-Type', 'application/json')
     .append('Authorization', `${environment.pexelApiKey}`);
 
-    const url = URL_RESOURCES.pexelApi+`?query=fantasy&per_page=${numberImages}`;
+    const url = URL_RESOURCES.pexelApi+`?query=fantasy&page=1&per_page=${page}`;
     const images = this.httpService.get<IPexelImages>(url, header).pipe(
       map((response) => this.getPexelMapper.map(response))
     );

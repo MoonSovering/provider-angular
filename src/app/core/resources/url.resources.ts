@@ -9,5 +9,6 @@ export const URL_RESOURCES = {
   buyBook: `${environment.apiUrl}/provide/book`,
   managerList: `${environment.apiUrl}/provide/list/manager`,
   budgetManager: `${environment.apiUrl}/provide/list/budget`,
-  pexelApi: `${environment.pexelUrl}`
+  pexelApi: `${environment.pexelUrl}`,
+  getBooks: `${environment.apiUrl}/provide/literature`,
 }

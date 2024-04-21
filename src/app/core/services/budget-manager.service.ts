@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpService } from './generals/http.service';
 import { BudgetMapper } from '../mappers/budget-manager-api-to.mapper';
 import { URL_RESOURCES } from '../resources/url.resources';
-import { map, tap } from 'rxjs';
+import { Observable, map, tap } from 'rxjs';
+import { IBudgetManager } from '../models/budget-manager.model';
 
 @Injectable({
   providedIn: 'root'
@@ -14,9 +15,9 @@ export class BudgetManagerService {
     private readonly budgetMapper: BudgetMapper
   ) { }
 
-  postBudgetManager(budgetData) {
+  postBudgetManager(budgetData): Observable<IBudgetManager> {
     const url = URL_RESOURCES.budgetManager;
-    const budget = this.httpService.post(url, budgetData)
+    const budget = this.httpService.post<IBudgetManager>(url, budgetData)
     .pipe(
       map((result) => this.budgetMapper.map(result)),
       tap( (result) => result)

@@ -1,0 +1,16 @@
+
+
+<main>
+  @if(products == null){
+  <h1>Nothing to see here</h1>
+  }@else {
+    <ul>
+      @for (product of products; track $index) {
+        <app-list item="{{product.name}}"></app-list>
+        <app-list item="{{product.price}}"></app-list>
+        <app-list item="{{product.stock}}"></app-list>
+        <app-button [disabled]="isButtonDisabled" (onClick)="getProduct(product)" label="Agregar"></app-button>
+      }
+    </ul>
+  }
+</main>

@@ -9,6 +9,7 @@ export class BuyProductMapper {
   map(payload: any): IClientProduct {
     return {
       product: {
+        id: payload.id,
         name: payload.name,
         price: payload.price,
         stock: payload.stock,
