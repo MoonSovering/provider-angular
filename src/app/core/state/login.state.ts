@@ -7,7 +7,7 @@ import { ILoginUser } from "../models/interfaces/login-user.interface";
   providedIn: 'root'
 })
 export class LoginState {
-  private user$: BehaviorSubject<ILoginUser> = new BehaviorSubject(null);
+  private user$: BehaviorSubject<ILoginUser> = new BehaviorSubject<ILoginUser>(null);
 
   constructor(private readonly factory: StateFactory) { }
 

@@ -7,7 +7,7 @@ import { IRegisterUser } from "../models/interfaces/register-user.interface";
   providedIn: 'root'
 })
 export class RegisterState {
-  private user$: BehaviorSubject<IRegisterUser> = new BehaviorSubject(null);
+  private user$: BehaviorSubject<IRegisterUser> = new BehaviorSubject<IRegisterUser>(null);
 
   constructor(private readonly factory: StateFactory) { }
 

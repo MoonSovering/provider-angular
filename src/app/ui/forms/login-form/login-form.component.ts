@@ -35,9 +35,9 @@ export class LoginFormComponent implements OnInit{
       )
   }
 
-  onSubmit(): void {
+  onSubmit($event: SubmitEvent): void {
     this.submitted = true;
-
+    $event.preventDefault();
     if (this.form.invalid) {
       return;
     }

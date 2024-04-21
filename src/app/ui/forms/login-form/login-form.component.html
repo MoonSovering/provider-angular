@@ -1,5 +1,5 @@
 
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
+<form [formGroup]="form" (ngSubmit)="onSubmit($event)">
 <app-title title="Login"></app-title>
 
 <app-label name="username">

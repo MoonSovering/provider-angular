@@ -7,7 +7,7 @@ import { IManagerList } from "../models/manager-list.model";
   providedIn: 'root'
 })
 export class ManagerListState {
-  private managerList$: BehaviorSubject<IManagerList> = new BehaviorSubject(null);
+  private managerList$: BehaviorSubject<IManagerList> = new BehaviorSubject<IManagerList>(null);
 
   constructor(private readonly factory: StateFactory) { }
 

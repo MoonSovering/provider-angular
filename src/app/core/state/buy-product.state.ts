@@ -10,7 +10,7 @@ import { IClientProduct } from "../models/interfaces/client-product.interface";
   providedIn: 'root'
 })
 export class ProductState {
-  private product$: BehaviorSubject<IBuyProduct> = new BehaviorSubject(null);
+  private product$: BehaviorSubject<IBuyProduct> = new BehaviorSubject<IBuyProduct>(null);
 
   constructor(private readonly factory: StateFactory) { }
 

@@ -9,7 +9,7 @@ import { IBudgetManager } from "../models/budget-manager.model";
   providedIn: 'root'
 })
 export class BudgetManagerState {
-  private budgetManager$: BehaviorSubject<IBudgetManager> = new BehaviorSubject(null);
+  private budgetManager$: BehaviorSubject<IBudgetManager> = new BehaviorSubject<IBudgetManager>(null);
 
   constructor(private readonly factory: StateFactory) { }
 

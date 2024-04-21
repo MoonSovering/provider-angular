@@ -8,7 +8,7 @@ import { Injectable } from "@angular/core";
   providedIn: 'root'
 })
 export class RenderProductState {
-  private renderProduct$: BehaviorSubject<IClientProduct> = new BehaviorSubject(null);
+  private renderProduct$: BehaviorSubject<IClientProduct> = new BehaviorSubject<IClientProduct>(null);
 
   constructor(private readonly factory: StateFactory) { }
 
