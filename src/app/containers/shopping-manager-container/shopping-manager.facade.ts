@@ -4,6 +4,7 @@ import { AppState } from "../../core/state/app.state";
 import { IBuyProduct } from "../../core/models/buy-product.model";
 import { ManagerListService } from "../../core/services/manager-list.service";
 import { IManagerList } from "../../core/models/manager-list.model";
+import { IListResponseManager } from "../../core/models/list-manager-response.model";
 
 
 @Injectable({
@@ -22,6 +23,14 @@ export class ShoppingManagerFacade {
     return this.appState.shoppingCart.products.$();
   }
 
+  wishListResponse$(): Observable<IListResponseManager> {
+    return this.appState.managerList.managerList.$();
+  }
+
+  managerResponseProduct$(): Observable<IListResponseManager> {
+    return this.appState.managerList.managerList.$();
+  }
+
   initSubscriptions(): void {
     this.subscriptions = new Subscription();
   }
@@ -30,9 +39,13 @@ export class ShoppingManagerFacade {
     this.subscriptions.unsubscribe();
   }
 
-  postManagerList(managerListData: IManagerList[]): void {
+  postManagerList(managerListData: IManagerList): void {
     this.subscriptions.add(
-      this.managerListService.postManagerList(managerListData).subscribe()
+      this.managerListService.postManagerList(managerListData).subscribe(
+        (result) => {
+          this.appState.managerList.managerList.set(result);
+        }
+      )
     );
   }
 }

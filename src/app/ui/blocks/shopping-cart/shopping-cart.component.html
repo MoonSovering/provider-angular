@@ -6,7 +6,7 @@
   <app-linked-button [item]="redirect"></app-linked-button>
   }@else {
     <ul>
-      @for (product of products; track $index) {
+      @for (product of products; track product.id) {
         <app-list item="{{product.name}}"></app-list>
         <app-list><app-paragraph [paragraph]="'Price: '"></app-paragraph></app-list>
         <app-list item="{{updateItemPrice(getCartItemAmount(product) ,product.price.toString())}}"></app-list>
@@ -16,5 +16,17 @@
       }
     </ul>
     <button (click)="emitCartItems()">Comprar!</button>
+  }
+
+  <br>
+
+  @if(managerProductResponse != null ){
+    @for (result of managerProductResponse.products; track $index) {
+      <app-list item="{{result.name}}"></app-list>
+      <app-list item="{{result.price}}"></app-list>
+      <app-list item="{{result.type}}"></app-list>
+      <app-list item="{{managerProductResponse.totalAmount}}"></app-list>
+      <app-list item="{{managerProductResponse.totalWithDiscount}}"></app-list>
+    }
   }
 </main>

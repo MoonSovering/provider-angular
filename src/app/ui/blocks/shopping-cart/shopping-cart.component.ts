@@ -5,49 +5,52 @@ import { LinkedButtonComponent } from '../../elements/linked-button/linked-butto
 import { LinkedButton } from '../../../core/models/interfaces/linked-button.interface';
 import { IManagerList } from '../../../core/models/manager-list.model';
 import { ParagraphComponent } from '../../elements/paragraph/paragraph.component';
+import { JsonPipe } from '@angular/common';
+import { IListResponseManager } from '../../../core/models/list-manager-response.model';
 
 @Component({
   selector: 'app-shopping-cart',
   standalone: true,
-  imports: [ListComponent, LinkedButtonComponent, ParagraphComponent],
+  imports: [ListComponent, LinkedButtonComponent, ParagraphComponent, JsonPipe],
   templateUrl: './shopping-cart.component.html',
   styleUrl: './shopping-cart.component.css'
 })
 export class ShoppingCartComponent {
 
-  @Output() captureProduct: EventEmitter<IManagerList[]> = new EventEmitter<IManagerList[]>();
+  @Output() captureProduct: EventEmitter<IManagerList> = new EventEmitter<IManagerList>();
+  @Input() managerProductResponse: IListResponseManager;
   @Input() products: IBuyProduct[];
   redirect: LinkedButton = {
     label: 'Go to store',
     link: '/provider/manager'
   }
 
-  cartItems: IManagerList[] = [];
+  cartItems: IManagerList = {products: []};
   disabledProducts: Set<IBuyProduct> = new Set();
 
   increaseAmount(product: IBuyProduct): void {
-    const cartItem = this.cartItems.find((item) => item.productId === product.id);
+    const cartItem = this.cartItems.products.find((item) => item.productId === product.id);
     if(cartItem) {
       cartItem.amount +=1;
     }
     if(cartItem === undefined) {
-      this.cartItems.push({productId: product.id, amount: 1});
+      this.cartItems.products.push({productId: product.id, amount: 1});
       this.disabledProducts.add(product);
     }
   }
 
   decreaseAmount(product: IBuyProduct): void {
-    const cartItem = this.cartItems.find((item) => item.productId === product.id);
+    const cartItem = this.cartItems.products.find((item) => item.productId === product.id);
     if(cartItem){
       cartItem.amount -=1;
     }
     if(cartItem.amount === 0){
-      this.cartItems = this.cartItems.filter((item) => item.productId !== product.id);
+      this.cartItems.products = this.cartItems.products.filter((item) => item.productId !== product.id);
       this.disabledProducts.delete(product);
     }
   }
   getCartItemAmount(product: IBuyProduct): number {
-    const cartItem = this.cartItems.find((item) => item.productId === product.id);
+    const cartItem = this.cartItems.products.find((item) => item.productId === product.id);
     return cartItem ? cartItem.amount : 0;
   }
 

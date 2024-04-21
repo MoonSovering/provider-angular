@@ -17,9 +17,10 @@ export class ManagerListService {
     private readonly managerListMapper: ManagerListMapper
   ) { }
 
-  postManagerList(managerListData): Observable<IListResponseManager[]> {
+  postManagerList(managerListData: IManagerList): Observable<IListResponseManager> {
+    console.log('managerListData', managerListData)
     const url = URL_RESOURCES.managerList;
-    const managerList = this.httpService.post<IManagerList[]>(url, managerListData)
+    const managerList = this.httpService.post<IListResponseManager>(url, JSON.stringify(managerListData))
     .pipe(
       map((result) => this.managerListMapper.map(result)),
       tap( (result) => result)

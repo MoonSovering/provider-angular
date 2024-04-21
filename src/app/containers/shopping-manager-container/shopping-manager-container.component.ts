@@ -5,6 +5,7 @@ import { IBuyProduct } from '../../core/models/buy-product.model';
 import { AsyncPipe } from '@angular/common';
 import { ShoppingCartComponent } from '../../ui/blocks/shopping-cart/shopping-cart.component';
 import { IManagerList } from '../../core/models/manager-list.model';
+import { IListResponseManager } from '../../core/models/list-manager-response.model';
 
 @Component({
   selector: 'app-shopping-manager-container',
@@ -15,6 +16,8 @@ import { IManagerList } from '../../core/models/manager-list.model';
 export class ShoppingManagerContainerComponent {
 
   cartProduts$: Observable<IBuyProduct[]>;
+  wishListResponse$: Observable<IListResponseManager>;
+  managerResponseProduct$: Observable<IListResponseManager>;
 
   constructor(
     private readonly facade: ShoppingManagerFacade
@@ -31,9 +34,11 @@ export class ShoppingManagerContainerComponent {
 
   private initializeSubscription(): void {
     this.cartProduts$ = this.facade.cartProducts$();
+    this.wishListResponse$ = this.facade.wishListResponse$();
+    this.managerResponseProduct$ = this.facade.managerResponseProduct$();
   }
 
-  captureWishList(wishList: IManagerList[]): void {
-    console.log(wishList);
+  captureWishList(wishList: IManagerList): void {
+    this.facade.postManagerList(wishList);
   }
 }

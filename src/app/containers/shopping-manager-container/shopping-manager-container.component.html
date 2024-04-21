@@ -1,2 +1,2 @@
 
-<app-shopping-cart [products]="cartProduts$ | async" (captureProduct)="captureWishList($event)"></app-shopping-cart>
+<app-shopping-cart [products]="cartProduts$ | async" (captureProduct)="captureWishList($event)" [managerProductResponse]="managerResponseProduct$ | async"></app-shopping-cart>
