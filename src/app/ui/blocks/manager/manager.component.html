@@ -9,8 +9,10 @@
         <app-list item="{{product.name}}"></app-list>
         <app-list item="{{product.price}}"></app-list>
         <app-list item="{{product.stock}}"></app-list>
-        <app-button [disabled]="isButtonDisabled" (onClick)="getProduct(product)" label="Agregar"></app-button>
+        <button [disabled]="addDisableButton(product)" (click)="getProduct(product)">Agregar</button>
+        <button [disabled]="deleteDisableButton(product)" (click)="deleteProduct(product)">Eliminar</button>
       }
     </ul>
+    <app-linked-button [item]="redirect"></app-linked-button>
   }
 </main>

@@ -43,6 +43,10 @@ export class RegisterContainerFacade {
 
   }
 
+  fillShoppingCar(cartProducts: IBuyProduct[]): void{
+    this.appState.shoppingCart.products.set(cartProducts);
+  }
+
   getAllBooks(): void {
     this.subscriptions.add(
       this.getBooksService.getAllBooks().pipe(

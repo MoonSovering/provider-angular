@@ -1,2 +1,2 @@
 
-<app-manager [products]="products$ | async" ></app-manager>
+<app-manager [products]="products$ | async"  (captureProduct)="shoppingCar($event)"></app-manager>

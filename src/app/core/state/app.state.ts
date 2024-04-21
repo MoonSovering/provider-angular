@@ -7,6 +7,7 @@ import { RegisterState } from "./register.state";
 import { RenderProductState } from "./render-product.state";
 import { saveProductsState } from "./all-product.state";
 import { RenderManyProductState } from "./render-many-product.state";
+import { ShoppingCartState } from "./shopping-cart.state";
 
 
 @Injectable({
@@ -22,7 +23,8 @@ export class AppState {
     private readonly registerState: RegisterState,
     private readonly renderProductState: RenderProductState,
     private readonly saveProductsState: saveProductsState,
-    private readonly renderManyProductState: RenderManyProductState
+    private readonly renderManyProductState: RenderManyProductState,
+    private readonly shoppingCartState: ShoppingCartState
   ) { }
 
   get login() {
@@ -54,5 +56,8 @@ export class AppState {
 
   get renderManyProduct(){
     return this.renderManyProductState.productRenderStore();
+  }
+  get shoppingCart(){
+    return this.shoppingCartState.saveProducts();
   }
 }

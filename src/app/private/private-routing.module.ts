@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeLayoutComponent } from '../ui/layouts/home-layout/home-layout.component';
 import { HomeContainerComponent } from '../containers/home-container/home-container.component';
+import { enableDebugTools } from '@angular/platform-browser';
 
 const routes: Routes = [
   {
@@ -29,10 +30,6 @@ const routes: Routes = [
     path: 'budget',
     loadChildren: () => import('./provider-budget/provider-budget.module')
       .then(module => module.ProviderBudgetModule),
-  },
-  {
-    path: '**',
-    redirectTo: ''
   }
 ];
 

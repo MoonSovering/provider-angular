@@ -2,7 +2,6 @@ import { Component, Input } from '@angular/core';
 import { ManagerComponent } from '../../ui/blocks/manager/manager.component';
 import { RegisterContainerFacade } from './manager-list-container.facade';
 import { Observable } from 'rxjs';
-import { IGetProducts } from '../../core/models/interfaces/get-products.interface';
 import { AsyncPipe } from '@angular/common';
 import { IBuyProduct } from '../../core/models/buy-product.model';
 
@@ -14,7 +13,7 @@ import { IBuyProduct } from '../../core/models/buy-product.model';
 })
 export class ManagerListContainerComponent {
 
-  @Input() products: any;
+  @Input() products: IBuyProduct[];
   products$: Observable<IBuyProduct[]>
 
 
@@ -39,8 +38,10 @@ export class ManagerListContainerComponent {
     this.facade.getImages();
   }
 
+  shoppingCar(cartProducts: IBuyProduct[]): void {
+    this.facade.fillShoppingCar(cartProducts);
+  }
   private initializeSubscriptions(): void {
     this.products$ = this.facade.products$();
   }
-
 }
