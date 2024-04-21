@@ -1,0 +1,13 @@
+
+
+<app-title>This is your book! enjoy it.</app-title>
+
+@if (renderProduct == null) {
+  <app-title title="There are no books here!. please create one :D"></app-title>
+}@else {
+  <section>
+    <h3>{{renderProduct.product.name}}</h3>
+
+    <img src="{{renderProduct.img}}" alt="{{renderProduct.alt}}"/>
+  </section>
+}

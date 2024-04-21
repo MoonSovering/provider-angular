@@ -27,9 +27,9 @@ export class HttpService {
     return null;
   }
 
-  get<T>(url: string): Observable<T> {
+  get<T>(url: string, header?: HttpHeaders): Observable<T> {
     return this.http.get<T>(url, {
-      headers: this.headers
+      headers: header ? header : this.headers
     })
     .pipe(
       catchError((error) => this.handleError(error))

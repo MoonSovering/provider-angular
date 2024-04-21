@@ -1,0 +1,23 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <app-title title="Buy Product"></app-title>
+
+  <app-label name="name">
+    <app-input type="text" placeholder="Product Name" formControlName="name"></app-input>
+  </app-label>
+
+  <app-label name="price">
+    <app-input type="number" placeholder="0" formControlName="price"></app-input>
+  </app-label>
+
+  <app-label name="stock">
+    <app-input type="number" placeholder="0" formControlName="stock"></app-input>
+  </app-label>
+
+  <app-label name="libraryType">
+    <select formControlName="libraryType">
+      <option value="0">Book</option>
+      <option value="1">Novel</option>
+    </select>
+  </app-label>
+  <app-button label="Buy" type="submit"></app-button>
+</form>

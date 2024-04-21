@@ -12,15 +12,15 @@ export class HomeContainerComponent {
   navigationElements: LinkedButton[]= [
     {
       label: 'Buy products',
-      link: 'buy-product'
+      link: 'provider/buy-product'
     },
     {
       label: 'List Manager',
-      link: 'manager'
+      link: 'provider/manager'
     },
     {
       label: 'Budget manager',
-      link: 'budget'
+      link: 'provider/budget'
     }
   ];
 }

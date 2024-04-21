@@ -16,7 +16,6 @@ export class RegisterContainerComponent {
   ){}
   ngOnInit(): void {
     this.facade.initSubscriptions();
-    this.facade.initSubscriptions();
   }
 
   ngOnDestroy(): void {

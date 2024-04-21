@@ -8,7 +8,7 @@ import { IBudgetManager } from "../models/budget-manager.model";
 @Injectable({
   providedIn: 'root'
 })
-export class budgetManagerState {
+export class BudgetManagerState {
   private budgetManager$: BehaviorSubject<IBudgetManager> = new BehaviorSubject(null);
 
   constructor(private readonly factory: StateFactory) { }
