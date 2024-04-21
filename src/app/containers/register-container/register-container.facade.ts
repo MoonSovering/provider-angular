@@ -1,9 +1,9 @@
 import { Injectable } from "@angular/core";
 import { Observable, Subscription, tap } from "rxjs";
 import { AuthService } from "../../core/services/auth.service";
-import { IUserRegister } from "../../core/models/user-register.model";
 import { RegisterState } from "../../core/state/register.state";
 import { IRegisterUser } from "../../core/models/interfaces/register-user.interface";
+import { IUser } from "../../core/models/user.model";
 
 
 @Injectable({
@@ -29,7 +29,7 @@ export class RegisterContainerFacade {
   destroySubscription(): void {
     this.subscriptions.unsubscribe();
   }
-  getUser(formData: IUserRegister): void {
+  getUser(formData: IUser): void {
     this.subscriptions.add(
       this.AuthService.userRegister(formData).pipe(
         tap(this.registerState.registerStore().user.set.bind(this))

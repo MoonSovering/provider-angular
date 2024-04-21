@@ -2,13 +2,12 @@ import { Injectable } from '@angular/core';
 import { Observable, map, tap } from 'rxjs';
 import { HttpService } from './generals/http.service';
 import { LoginApiToUserMapper } from '../mappers/login-api-to-user.mapper';
-import { IUserLogin } from '../models/user-login.model';
 import { URL_RESOURCES } from '../resources/url.resources';
 import { StorageService } from './generals/storage.service';
-import { IUserRegister } from '../models/user-register.model';
 import { RegisterApiToUserMapper } from '../mappers/register-api-to-user.mapper';
 import { VerifyTokenMapper } from '../mappers/verify-token.mapper';
 import { IVerifyToken } from '../models/interfaces/verify-token.interface';
+import { IUser } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -23,9 +22,9 @@ export class AuthService {
     private readonly storage: StorageService
   ) { }
 
-  userLogin(loginData): Observable<IUserLogin>{
+  userLogin(loginData): Observable<IUser>{
     const url = URL_RESOURCES.login;
-    const user = this.httpService.post<IUserLogin>(url, loginData)
+    const user = this.httpService.post<IUser>(url, loginData)
     .pipe(
       map((result) => this.loginMapper.map(result) ),
       tap( (result) => this.storage.set('token', result.token) )
@@ -33,9 +32,9 @@ export class AuthService {
     return user;
   }
 
-  userRegister(registerData): Observable<IUserRegister>{
+  userRegister(registerData): Observable<IUser>{
     const url = URL_RESOURCES.register;
-    const newUser = this.httpService.post<IUserRegister>(url, registerData)
+    const newUser = this.httpService.post<IUser>(url, registerData)
     .pipe(
       map( (result) =>  this.registerMapper.map(result)),
       tap( (result) => this.storage.set('token', result.token) )

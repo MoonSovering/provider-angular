@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { RegisterFormComponent } from '../../ui/forms/register-form/register-form.component';
 import { RegisterContainerFacade } from './register-container.facade';
-import { IUserRegister } from '../../core/models/user-register.model';
+import { IUser } from '../../core/models/user.model';
 
 @Component({
   selector: 'app-register-container',
@@ -10,7 +10,7 @@ import { IUserRegister } from '../../core/models/user-register.model';
   templateUrl: './register-container.component.html',
 })
 export class RegisterContainerComponent {
-  @Input() userData: IUserRegister;
+  @Input() userData: IUser;
   constructor(
     private readonly facade: RegisterContainerFacade
   ){}

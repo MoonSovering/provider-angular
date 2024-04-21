@@ -1,12 +1,11 @@
 import { Injectable } from "@angular/core";
-import { IUserLogin } from "../models/user-login.model";
-
+import { IUser } from "../models/user.model";
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginApiToUserMapper {
-  map(payload: any): IUserLogin {
+  map(payload: any): IUser {
     return {
       username: payload.username,
       token: payload.token

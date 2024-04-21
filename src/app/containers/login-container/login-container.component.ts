@@ -1,7 +1,7 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { LoginFormComponent } from '../../ui/forms/login-form/login-form.component';
-import { IUserLogin } from '../../core/models/user-login.model';
 import { LoginContainerFacade } from './login-container.facade';
+import { IUser } from '../../core/models/user.model';
 
 @Component({
   selector: 'app-login-container',
@@ -11,7 +11,7 @@ import { LoginContainerFacade } from './login-container.facade';
 })
 export class LoginContainerComponent implements OnInit, OnDestroy{
 
-  @Input() userData: IUserLogin;
+  @Input() userData: IUser;
   constructor(
     private readonly facade: LoginContainerFacade
   ){}

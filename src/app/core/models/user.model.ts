@@ -1,5 +1,5 @@
 
-export interface IUserRegister {
+export interface IUser {
   username: string;
   token: string;
 }

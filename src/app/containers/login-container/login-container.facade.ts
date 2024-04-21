@@ -2,9 +2,9 @@ import { Injectable } from "@angular/core";
 import { Observable, Subscription, tap } from "rxjs";
 import { AuthService } from "../../core/services/auth.service";
 import { ILoginUser } from "../../core/models/interfaces/login-user.interface";
-import { IUserLogin } from "../../core/models/user-login.model";
 import { AppState } from "../../core/state/app.state";
 import { Router } from "@angular/router";
+import { IUser } from "../../core/models/user.model";
 
 
 @Injectable({
@@ -31,7 +31,7 @@ export class LoginContainerFacade {
   destroySubscription(): void {
     this.subscriptions.unsubscribe();
   }
-  getUser(formData: IUserLogin): void {
+  getUser(formData: IUser): void {
     this.subscriptions.add(
       this.AuthService.userLogin(formData).pipe(
         tap(this.appState.login.user.set.bind(this)),
