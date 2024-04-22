@@ -16,6 +16,9 @@ export class HeaderContainerFacade {
     if(data === 'logout') {
       this.store.remove('token');
       this.router.navigate(['/auth/sign-in']);
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
     }
   }
 }
