@@ -19,9 +19,7 @@ export class BudgetManagerService {
   ) { }
 
   postBudgetManager(budgetData): Observable<IBudgetResponse[]> {
-    console.log('budgetData', budgetData)
     let budgetRequestData = this.budgetRequestMapper.map(budgetData);
-    console.log('budgetRequestData', budgetRequestData)
     const url = URL_RESOURCES.budgetManager;
     const budget = this.httpService.post<IBudgetManager>(url, budgetRequestData)
     .pipe(
