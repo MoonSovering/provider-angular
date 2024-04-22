@@ -1,9 +1,8 @@
-
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
-  <app-title title="Login"></app-title>
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="form">
+  <app-title title="Register"></app-title>
 
   <app-label name="Username">
-    <app-input type="text" placeholder="Yuna" formControlName="username"></app-input>
+    <app-input type="text" placeholder="Yuna" formControlName="Username"></app-input>
   </app-label>
   <app-label name="Email">
     <app-input type="email" placeholder="yuna@gmail.com" formControlName="email"></app-input>
@@ -12,4 +11,4 @@
     <app-input type="password" placeholder="*********" formControlName="password"></app-input>
   </app-label>
   <app-button label="Register" type="submit"></app-button>
-  </form>
+</form>

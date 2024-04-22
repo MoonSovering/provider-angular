@@ -5,11 +5,12 @@ import { InputComponent } from '../../elements/input/input.component';
 import { LabelComponent } from '../../elements/label/label.component';
 import { ButtonComponent } from '../../elements/button/button.component';
 import { ILoginUser } from '../../../core/models/interfaces/login-user.interface';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
   standalone: true,
-  imports: [TitleComponent, InputComponent, LabelComponent, ButtonComponent, ReactiveFormsModule],
+  imports: [TitleComponent, InputComponent, LabelComponent, ButtonComponent, ReactiveFormsModule, RouterLink],
   templateUrl: './login-form.component.html',
   styleUrl: './login-form.component.css'
 })
