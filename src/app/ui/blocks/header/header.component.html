@@ -1,7 +1,9 @@
 
-<header>
-  <app-logo></app-logo>
-  @for (button of linkedButton; track $index) {
-    <app-linked-button [item]="button"></app-linked-button>
-  }
+<header class="header">
+  <app-logo class="header__logo"></app-logo>
+  <div class="header__container">
+    @for (button of linkedButton; track $index) {
+      <app-linked-button [item]="button" (click)="handleClick(button.label)" class="header__button"></app-linked-button>
+    }
+  </div>
 </header>

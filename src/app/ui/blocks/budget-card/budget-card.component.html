@@ -7,6 +7,7 @@
   }@else {
     <ul>
       @for (product of products; track product.id) {
+        <app-list><img src="{{product.photo.url}}" alt="{{product.photo.alt}}"></app-list>
         <app-list item="{{product.name}}"></app-list>
         <app-list><app-paragraph [paragraph]="'Price: '"></app-paragraph></app-list>
         <app-list item="{{product.price}}"></app-list>

@@ -1,14 +1,15 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()" class="form">
-  <app-title title="Register"></app-title>
 
-  <app-label name="Username">
-    <app-input type="text" placeholder="Yuna" formControlName="Username"></app-input>
-  </app-label>
-  <app-label name="Email">
-    <app-input type="email" placeholder="yuna@gmail.com" formControlName="email"></app-input>
-  </app-label>
-  <app-label name="Password">
-    <app-input type="password" placeholder="*********" formControlName="password"></app-input>
-  </app-label>
-  <app-button label="Register" type="submit"></app-button>
-</form>
+<div class="auth">
+  <form [formGroup]="form" (ngSubmit)="onSubmit($event)" class="auth__form">
+    <app-title title="Register" class="form__title"></app-title>
+      <app-input type="text" placeholder="Username" formControlName="username"><span class="container__span"></span></app-input>
+      <app-input type="email" placeholder="Email" formControlName="email"><span class="container__span"></span></app-input>
+      <app-input type="password" placeholder="Password" formControlName="password"><span class="container__span"></span></app-input>
+      @if(form.valid){
+        <button type="submit" class="container__button">Register</button>
+      }@else{
+        <button type="submit" class="container__button container_button--disabled" [disabled]="!form.valid">Register</button>
+      }
+  </form>
+  <p class="form__paragraph"><a routerLink="/auth/sign-in">¿Already have account?</a></p>
+</div>

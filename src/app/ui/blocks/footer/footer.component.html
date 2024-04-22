@@ -1,15 +1,14 @@
-
-<footer>
-  <div class="container">
-    <app-paragraph [paragraph]="'Armando Sanmartin'"></app-paragraph>
-    <app-paragraph [paragraph]="'Thanks for reading!'">Thanks for reading!</app-paragraph>
-  </div>
-  <div class="container">
-    <ul>
+<footer class="footer">
+  <nav class="footer__nav">
+    <div class="footer__container footer__container--paragrahp">
+      <app-paragraph [paragraph]="'Thanks for reading!'">Thanks for reading!</app-paragraph>
+      <app-paragraph [paragraph]="'Armando Sanmartin'"></app-paragraph>
+    </div>
+    <ul class="footer__ul">
       @for (item of linkedLogo; track $index) {
-        <li><app-linked-logo [linkedLogo]="item"></app-linked-logo></li>
+        <li class="footer_list"><app-linked-logo [linkedLogo]="item"></app-linked-logo></li>
       }
     </ul>
-  </div>
-  <app-paragraph [paragraph]="'Copyright © 2024 Armando Sanmartin All rights reserved.'">Copyright © 2024 Armando Sanmartin All rights reserved.</app-paragraph>
+  </nav>
+  <app-paragraph [paragraph]="'Copyright © 2024 Armando Sanmartin All rights reserved.'" class="footer__pragrahp">Copyright © 2024 Armando Sanmartin All rights reserved.</app-paragraph>
 </footer>
