@@ -18,7 +18,6 @@ export class ManagerListService {
   ) { }
 
   postManagerList(managerListData: IManagerList): Observable<IListResponseManager> {
-    console.log('managerListData', managerListData)
     const url = URL_RESOURCES.managerList;
     const managerList = this.httpService.post<IListResponseManager>(url, JSON.stringify(managerListData))
     .pipe(

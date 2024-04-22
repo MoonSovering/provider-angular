@@ -28,13 +28,11 @@ export class ManagerComponent {
     this.selectProducts.push(product);
     this.captureProduct.emit(this.selectProducts);
     this.disabledProducts.add(product);
-    console.log("fiorst", this.selectProducts);
   }
 
   deleteProduct(product: IBuyProduct) {
     this.selectProducts= this.selectProducts.filter((item) => item !== product);
     this.captureProduct.emit(this.selectProducts);
-    console.log("second", this.selectProducts);
     this.disabledProducts.delete(product);
   }
 
