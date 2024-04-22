@@ -35,6 +35,7 @@ export class ProductContainerComponent {
   }
 
   postProduct(productData) {
+    console.log(productData);
     this.facade.postProduct(productData);
   }
   getImages() {

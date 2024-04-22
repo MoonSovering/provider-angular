@@ -23,7 +23,6 @@ export class ManagerListContainerComponent {
   ngOnInit(): void {
     this.facade.initSubscriptions();
     this.getProducts();
-    this.getImages();
     this.initializeSubscriptions();
   }
   ngOnDestroy(): void {
@@ -32,10 +31,6 @@ export class ManagerListContainerComponent {
 
   getProducts(): void {
     this.facade.getAllBooks();
-  }
-
-  getImages(): void {
-    this.facade.getImages();
   }
 
   shoppingCar(cartProducts: IBuyProduct[]): void {

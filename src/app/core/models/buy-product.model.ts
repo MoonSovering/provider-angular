@@ -1,3 +1,4 @@
+import { Photo } from "./interfaces/images-api.interfaces";
 
 
 export interface IBuyProduct {
@@ -6,4 +7,5 @@ export interface IBuyProduct {
   price:       number;
   stock:       number;
   libraryType: string;
+  photo?: Photo
 }

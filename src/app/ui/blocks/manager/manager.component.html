@@ -6,6 +6,7 @@
   }@else {
     <ul>
       @for (product of products; track $index) {
+        <app-list><img src="{{product.photo.url}}" alt="{{product.photo.alt}}"></app-list>
         <app-list item="{{product.name}}"></app-list>
         <app-list item="{{product.price}}"></app-list>
         <app-list item="{{product.stock}}"></app-list>
@@ -16,3 +17,5 @@
     <app-linked-button [item]="redirect"></app-linked-button>
   }
 </main>
+
+{{products | json}}

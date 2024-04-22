@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Observable, Subscription, tap } from "rxjs";
+import { Observable, Subscription, map, mergeMap, tap } from "rxjs";
 import { ManagerListService } from "../../core/services/manager-list.service";
 import { GetBooksService } from "../../core/services/get-books.service";
 import { AppState } from '../../core/state/app.state';
@@ -35,11 +35,16 @@ export class RegisterContainerFacade {
     this.subscriptions.unsubscribe();
   }
 
-  getImages(): void {
-    let productSnapShot = this.appState.saveProducts.products.snapshot();
+  private getImages(products: IBuyProduct[]): Observable<IBuyProduct[]> {
 
-
-
+    return this.pexelApiService.getImages(products.length.toString()).pipe(
+      map((images: IPexelImages) => {
+        return products.map((product: IBuyProduct, index) => ({
+          ...product,
+          photo: images.photos[index]
+        }));
+      }),
+    )
   }
 
   fillShoppingCar(cartProducts: IBuyProduct[]): void{
@@ -49,8 +54,10 @@ export class RegisterContainerFacade {
   getAllBooks(): void {
     this.subscriptions.add(
       this.getBooksService.getAllBooks().pipe(
+        mergeMap( (products) => this.getImages(products)),
         tap(this.appState.saveProducts.products.set.bind(this))
       ).subscribe()
     );
   }
+
 }
