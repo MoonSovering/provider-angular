@@ -1,0 +1,18 @@
+
+
+<main>
+  @if(products == null){
+  <h1>Nothing to see here</h1>
+  }@else {
+    <ul>
+      @for (product of products; track $index) {
+        <app-list item="{{product.name}}"></app-list>
+        <app-list item="{{product.price}}"></app-list>
+        <app-list item="{{product.stock}}"></app-list>
+        <button [disabled]="addDisableButton(product)" (click)="getProduct(product)">Agregar</button>
+        <button [disabled]="deleteDisableButton(product)" (click)="deleteProduct(product)">Eliminar</button>
+      }
+    </ul>
+    <app-linked-button [item]="redirect"></app-linked-button>
+  }
+</main>

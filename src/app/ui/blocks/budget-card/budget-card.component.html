@@ -1,0 +1,33 @@
+
+
+<main>
+  @if(products.length == 0){
+  <h1>You do not have any product here!. Add some products to make a big deal :P</h1>
+  <app-linked-button [item]="redirect"></app-linked-button>
+  }@else {
+    <ul>
+      @for (product of products; track product.id) {
+        <app-list item="{{product.name}}"></app-list>
+        <app-list><app-paragraph [paragraph]="'Price: '"></app-paragraph></app-list>
+        <app-list item="{{product.price}}"></app-list>
+        <app-list item="{{product.libraryType}}"></app-list>
+      }
+    </ul>
+
+
+    <app-label name="Presupuesto: ">
+      <input type="number" placeholder="120000" [(ngModel)]="budget" />
+    </app-label>
+    <button (click)="emitCartItems()">Conoce el precio!</button>
+  }
+
+  <br>
+
+  @if(managerProductResponse != null ){
+    @for (result of managerProductResponse; track $index) {
+      <app-list item="{{result.name}}"></app-list>
+      <app-list item="{{result.price}}"></app-list>
+      <app-list item="{{result.libraryType}}"></app-list>
+    }
+  }
+</main>

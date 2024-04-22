@@ -10,7 +10,12 @@ export class BudgetMapper {
     return {
       products: [
         {
-          productId: payload.productId
+          id: payload.id,
+          name: payload.name,
+          price: payload.price,
+          stock: payload.stock,
+          libraryType: payload.libraryType
+
         }
       ],
       budget: payload.budget

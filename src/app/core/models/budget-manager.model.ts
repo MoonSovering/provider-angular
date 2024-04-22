@@ -1,8 +1,6 @@
-export interface IBudgetManager {
-  products: Product[];
-  budget:   number;
-}
+import { IBuyProduct } from "./buy-product.model";
 
-interface Product {
-  productId: string;
+export interface IBudgetManager {
+  products: IBuyProduct[];
+  budget:   number;
 }

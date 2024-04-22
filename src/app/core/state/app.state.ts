@@ -8,6 +8,8 @@ import { RenderProductState } from "./render-product.state";
 import { saveProductsState } from "./all-product.state";
 import { RenderManyProductState } from "./render-many-product.state";
 import { ShoppingCartState } from "./shopping-cart.state";
+import { BudgetState } from "./budget-cart.state";
+import { BudgetResponseState } from "./budget-response.state";
 
 
 @Injectable({
@@ -24,7 +26,9 @@ export class AppState {
     private readonly renderProductState: RenderProductState,
     private readonly saveProductsState: saveProductsState,
     private readonly renderManyProductState: RenderManyProductState,
-    private readonly shoppingCartState: ShoppingCartState
+    private readonly shoppingCartState: ShoppingCartState,
+    private readonly budgetState: BudgetState,
+    private readonly budgetResponseState: BudgetResponseState
   ) { }
 
   get login() {
@@ -59,5 +63,11 @@ export class AppState {
   }
   get shoppingCart(){
     return this.shoppingCartState.saveProducts();
+  }
+  get budgetCart(){
+    return this.budgetState.saveProducts();
+  }
+  get budgetResponse() {
+    return this.budgetResponseState.productStore();
   }
 }

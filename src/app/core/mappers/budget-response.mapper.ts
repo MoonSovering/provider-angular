@@ -7,12 +7,15 @@ import { IBudgetResponse } from "../models/budget-manager-response.model";
   providedIn: 'root'
 })
 export class ResponseBudgetMapper {
-  map(payload: any): IBudgetResponse {
-    return {
-      name: payload.name,
-      price: payload.price,
-      stock: payload.stock,
-      libraryType: payload.type
-    }
+  map(payload: any): IBudgetResponse[] {
+    return payload.map((result) => {
+      return {
+        id: result.id,
+        name: result.name,
+        price: result.price,
+        stock: result.stock,
+        libraryType: result.libraryType
+      }
+    });
   }
 }

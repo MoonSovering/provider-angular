@@ -14,10 +14,11 @@ export class BudgetManagerService {
 
   constructor(
     private readonly httpService: HttpService,
-    private readonly budgetMapper: ResponseBudgetMapper
+    private readonly budgetMapper: ResponseBudgetMapper,
+    private readonly budgetRequestMapper: BudgetMapper
   ) { }
 
-  postBudgetManager(budgetData): Observable<IBudgetResponse> {
+  postBudgetManager(budgetData): Observable<IBudgetResponse[]> {
     const url = URL_RESOURCES.budgetManager;
     const budget = this.httpService.post<IBudgetManager>(url, budgetData)
     .pipe(
