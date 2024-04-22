@@ -1,36 +1,39 @@
 
 
-<main>
+<main class="main">
   @if(products.length == 0){
   <app-title title="You do not have any product here!. Add some products to make a big deal :P"></app-title>
   <app-linked-button [item]="redirect"></app-linked-button>
   }@else {
-    <ul>
+    <app-label name="Type your budget here" class=""></app-label>
+    <input type="number" placeholder="120000" [(ngModel)]="budget" class="main__input"/>
+    <button (click)="emitCartItems()" class="main__button">Know the price!</button>
+    <ul class="main__ul">
       @for (product of products; track product.id) {
-        <app-list><img src="{{product.photo.url}}" alt="{{product.photo.alt}}"></app-list>
-        <app-list item="{{product.name}}"></app-list>
-        <app-list><app-paragraph [paragraph]="'Price: '"></app-paragraph></app-list>
-        <app-list item="{{product.price}}"></app-list>
-        <app-list item="{{product.libraryType}}"></app-list>
+        <div class="main__container">
+          <img src="{{product.photo.url}}" alt="{{product.photo.alt}}" class="main__img">
+          <h3 class="main__h3">{{product.name}}</h3>
+          <p class="main__p">${{product.price}}</p>
+          <p class="main__p">amount: {{product.stock}}</p>
+          <p class="main__p">{{product.libraryType}}</p>
+        </div>
       }
     </ul>
-
-
-    <app-label name="Presupuesto: ">
-      <input type="number" placeholder="120000" [(ngModel)]="budget" />
-    </app-label>
-    <button (click)="emitCartItems()">Conoce el precio!</button>
   }
 
   <br>
 
   @if(budgetResponse != null ){
     <app-title title="You can buy this products with your budget!"></app-title>
-    @for (result of budgetResponse; track $index) {
-      <app-list item="{{result.name}}"></app-list>
-      <app-list item="{{result.price}}"></app-list>
-      <app-list item="{{result.libraryType}}"></app-list>
-    }
+    <ul class="main__ul">
+      @for (result of budgetResponse; track $index) {
+        <div class="main__container main__container--no-img">
+          <p class="main__p">{{result.name}}</p>
+          <p class="main__p">{{result.price}}</p>
+          <p class="main__p">{{result.libraryType}}</p>
+        </div>
+      }
+    </ul>
   }@else {
     <app-title title="You can not buy any product with your budget! D:"></app-title>
   }

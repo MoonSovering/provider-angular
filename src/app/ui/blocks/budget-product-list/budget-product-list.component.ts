@@ -17,7 +17,7 @@ export class BudgetProductListComponent {
   @Input() products: IBuyProduct[];
   @Output() captureProduct: EventEmitter<IBuyProduct[]> = new EventEmitter<IBuyProduct[]>();
   redirect: LinkedButton = {
-    label: 'Ir a presupuestar',
+    label: 'Go to budgeting',
     link: '/provider/budget/cart'
   }
   selectProducts: IBuyProduct[] = [];

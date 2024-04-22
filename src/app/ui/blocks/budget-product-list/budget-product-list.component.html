@@ -2,18 +2,22 @@
 
 <main>
   @if(products == null){
-  <h1>Nothing to see here</h1>
+  <h1>Unfortunaly we dont have any available products D:</h1>
   }@else {
-    <ul>
+    <h1>Look at our available products!</h1>
+    <ul class="main__ul">
       @for (product of products; track $index) {
-        <app-list><img src="{{product.photo.url}}" alt="{{product.photo.alt}}"></app-list>
-        <app-list item="{{product.name}}"></app-list>
-        <app-list item="{{product.price}}"></app-list>
-        <app-list item="{{product.stock}}"></app-list>
-        <button [disabled]="addDisableButton(product)" (click)="getProduct(product)">Agregar</button>
-        <button [disabled]="deleteDisableButton(product)" (click)="deleteProduct(product)">Eliminar</button>
+        <div class="main__container">
+          <img src="{{product.photo.url}}" alt="{{product.photo.alt}}" class="main__img">
+          <h3 class="main__h3">{{product.name}}</h3>
+          <p class="main__p">${{product.price}}</p>
+          <p class="main__p">amount: {{product.stock}}</p>
+          <p class="main__p">{{product.libraryType}}</p>
+          <button [disabled]="addDisableButton(product)" (click)="getProduct(product)" class="main__button">Add</button>
+          <button [disabled]="deleteDisableButton(product)" (click)="deleteProduct(product)" class="main__button">Delete</button>
+        </div>
       }
     </ul>
-    <app-linked-button [item]="redirect"></app-linked-button>
+    <app-linked-button [item]="redirect" class="main__card__button"></app-linked-button>
   }
 </main>
