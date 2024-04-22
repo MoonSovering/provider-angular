@@ -1,24 +1,22 @@
 import { Injectable } from "@angular/core";
-import { IBudgetManager } from "../models/budget-manager.model";
+import { BudgetProduct, IBudgetManager } from "../models/budget-manager.model";
+import { Product } from "../models/list-manager-response.model";
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class BudgetMapper {
+export class BudgetMapperHtpp {
   map(payload: any): IBudgetManager {
+    console.log('payload', payload.products)
+    const products = payload.products.map((product: any) => {
+      return {
+        productId: product.id,
+      }
+    });
     return {
-      products: [
-        {
-          id: payload.id,
-          name: payload.name,
-          price: payload.price,
-          stock: payload.stock,
-          libraryType: payload.libraryType
-
-        }
-      ],
+      products,
       budget: payload.budget
     }
+    }
   }
-}

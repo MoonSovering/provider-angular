@@ -11,17 +11,19 @@ import { ListComponent } from '../../elements/list/list.component';
 import { InputComponent } from '../../elements/input/input.component';
 import { LabelComponent } from '../../elements/label/label.component';
 import { TitleComponent } from '../../elements/title/title.component';
+import { IGetProducts } from '../../../core/models/interfaces/get-products.interface';
+import { IBudgetResponseHtpp } from '../../../core/models/interfaces/budget-response.interface';
 
 @Component({
   selector: 'app-budget-card',
   standalone: true,
-  imports: [ListComponent, LinkedButtonComponent, ParagraphComponent, JsonPipe, InputComponent, LabelComponent, TitleComponent, FormsModule],
+  imports: [ListComponent, LinkedButtonComponent, ParagraphComponent, JsonPipe, InputComponent, LabelComponent, TitleComponent, FormsModule, TitleComponent],
   templateUrl: './budget-card.component.html',
   styleUrl: './budget-card.component.css'
 })
 export class BudgetCardComponent {
-  @Output() captureProduct: EventEmitter<IBudgetManager> = new EventEmitter<IBudgetManager>();
-  @Input() managerProductResponse: IBudgetResponse[];
+  @Output() captureProduct: EventEmitter<IBudgetResponseHtpp> = new EventEmitter<IBudgetResponseHtpp>();
+  @Input() budgetResponse: IBudgetResponse[];
   @Input() products: IBuyProduct[];
   redirect: LinkedButton = {
     label: 'Go to store',
@@ -29,7 +31,7 @@ export class BudgetCardComponent {
   }
   budget: number = 0;
 
-  cartItems: IBudgetManager;
+  cartItems: IBudgetResponseHtpp;
   disabledProducts: Set<IBuyProduct> = new Set();
 
   setBudget(): void{

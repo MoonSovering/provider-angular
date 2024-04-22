@@ -1,2 +1,2 @@
 
-<app-budget-card [products]="cartProduts$ | async" (captureProduct)="captureWishList($event)"></app-budget-card>
+<app-budget-card [products]="cartProduts$ | async" [budgetResponse]="budgetResponse$ | async" (captureProduct)="captureWishList($event)"></app-budget-card>

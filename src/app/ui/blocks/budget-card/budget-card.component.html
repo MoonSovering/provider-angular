@@ -2,7 +2,7 @@
 
 <main>
   @if(products.length == 0){
-  <h1>You do not have any product here!. Add some products to make a big deal :P</h1>
+  <app-title title="You do not have any product here!. Add some products to make a big deal :P"></app-title>
   <app-linked-button [item]="redirect"></app-linked-button>
   }@else {
     <ul>
@@ -23,11 +23,14 @@
 
   <br>
 
-  @if(managerProductResponse != null ){
-    @for (result of managerProductResponse; track $index) {
+  @if(budgetResponse != null ){
+    <app-title title="You can buy this products with your budget!"></app-title>
+    @for (result of budgetResponse; track $index) {
       <app-list item="{{result.name}}"></app-list>
       <app-list item="{{result.price}}"></app-list>
       <app-list item="{{result.libraryType}}"></app-list>
     }
+  }@else {
+    <app-title title="You can not buy any product with your budget! D:"></app-title>
   }
 </main>

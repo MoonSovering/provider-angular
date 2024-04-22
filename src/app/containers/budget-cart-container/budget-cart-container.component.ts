@@ -6,6 +6,8 @@ import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 import { BudgetManagerFacade } from './budget-cart.facade';
 import { IBudgetManager } from '../../core/models/budget-manager.model';
+import { IBudgetResponseHtpp } from '../../core/models/interfaces/budget-response.interface';
+import { IBudgetResponse } from '../../core/models/budget-manager-response.model';
 
 @Component({
   selector: 'app-budget-cart-container',
@@ -15,6 +17,7 @@ import { IBudgetManager } from '../../core/models/budget-manager.model';
 })
 export class BudgetCartContainerComponent {
   cartProduts$: Observable<IBuyProduct[]>;
+  budgetResponse$: Observable<IBudgetResponse[]>;
 
   constructor(
     private readonly facade: BudgetManagerFacade
@@ -30,10 +33,10 @@ export class BudgetCartContainerComponent {
 
   private initializeSubscription(): void {
     this.cartProduts$ = this.facade.cartProducts$();
+    this.budgetResponse$ = this.facade.budgetResponse$();
   }
 
-  captureWishList(wishList: IBudgetManager): void {
-    console.log(wishList);
+  captureWishList(wishList: IBudgetResponseHtpp): void {
     this.facade.postBudgetList(wishList);
   }
 }
