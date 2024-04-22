@@ -12,8 +12,8 @@ export class HeaderContainerFacade {
     private readonly router: Router
   ) {}
 
-  public handleLinkedButtonValue($event: string): void {
-    if($event !== 'home') {
+  public handleLinkedButtonValue(data: string): void {
+    if(data === 'logout') {
       this.store.remove('token');
       this.router.navigate(['/auth/sign-in']);
     }

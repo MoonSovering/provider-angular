@@ -1,9 +1,9 @@
 
 
-<nav>
-  <ul>
+<nav class="navigation">
+  <ul class="navigation_ul">
     @for (button of items; track $index) {
-      <li>
+      <li class="navigation__list">
         <app-linked-button [item]="button"></app-linked-button>
       </li>
     }

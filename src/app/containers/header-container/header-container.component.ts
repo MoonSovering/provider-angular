@@ -22,8 +22,7 @@ export class HeaderContainerComponent {
     }
   ];
 
-  handleLinkedButtonValue($event: string): void {
-    console.log($event);
-    this.handleLinkedButtonValue($event);
+  handleLinkedButtonValue(data: string): void {
+    this.headerContainerFacade.handleLinkedButtonValue(data);
   }
 }

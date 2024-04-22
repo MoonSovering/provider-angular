@@ -16,6 +16,6 @@ export class HeaderComponent {
   @Output() linkedButtonValue = new EventEmitter<string>();
 
   handleClick(button: string) {
-    this.linkedButtonValue.emit('logout');
+    this.linkedButtonValue.emit(button);
   }
 }

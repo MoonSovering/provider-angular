@@ -1,13 +1,17 @@
 
 
-<app-title>This is your book! enjoy it.</app-title>
+<main class="main">
+  <app-title>This is your book! enjoy it.</app-title>
 
 @if (renderProduct == null) {
-  <app-title title="There are no books here!. please create one :D"></app-title>
+  <h2>There are no books here!. please create one :D</h2>
 }@else {
-  <section>
-    <p>{{renderProduct.product.price}}</p>
-    <h3>{{renderProduct.product.name}}</h3>
-    <img src="{{renderProduct.img}}" alt="{{renderProduct.alt}}"/>
+  <section class="main__section">
+    <div class="section-card">
+      <p>{{renderProduct.product.price}}</p>
+      <h3>{{renderProduct.product.name}}</h3>
+      <img src="{{renderProduct.img}}" alt="{{renderProduct.alt}}"/>
+    </div>
   </section>
 }
+</main>

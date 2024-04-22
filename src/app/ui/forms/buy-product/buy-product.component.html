@@ -1,23 +1,25 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()">
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="form">
   <app-title title="Buy Product"></app-title>
 
-  <app-label name="name">
-    <app-input type="text" placeholder="Product Name" formControlName="name"></app-input>
-  </app-label>
+    <app-label name="name" class="form__label"></app-label>
+    <app-input type="text"  formControlName="name" class="form__input"></app-input>
 
-  <app-label name="price">
-    <app-input type="number" placeholder="0" formControlName="price"></app-input>
-  </app-label>
+    <app-label name="price" class="form__label"></app-label>
+    <app-input type="number" placeholder="price" formControlName="price" class="form__input"></app-input>
 
-  <app-label name="stock">
-    <app-input type="number" placeholder="0" formControlName="stock"></app-input>
-  </app-label>
 
-  <app-label name="libraryType">
-    <select formControlName="libraryType">
+    <app-label name="stock" class="form__label"></app-label>
+    <app-input type="number" placeholder="stock" formControlName="stock" class="form__input"></app-input>
+
+
+    <app-label name="type" class="form__label"></app-label>
+    <select formControlName="libraryType" class="form__select">
       <option value="0">Book</option>
       <option value="1">Novel</option>
     </select>
-  </app-label>
-  <button label="Buy" type="submit">Buy</button>
+  @if(form.valid){
+    <button type="submit" class="form__button">Login</button>
+  }@else{
+    <button type="submit" class="form__button " [disabled]="!form.valid">Purchase</button>
+  }
 </form>

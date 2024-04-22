@@ -18,8 +18,8 @@ export class BuyProductComponent {
 
   form: FormGroup = new FormGroup({
     name: new FormControl(''),
-    price: new FormControl(0),
-    stock: new FormControl(0),
+    price: new FormControl(''),
+    stock: new FormControl(''),
     libraryType: new FormControl('')
   });
   submitted = false;
