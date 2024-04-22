@@ -1,0 +1,64 @@
+
+.main__ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.main__container {
+  width: 190px;
+  height: 294px;
+  padding: .8em;
+  background: #f5f5f5;
+  position: relative;
+  overflow: visible;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+.main__img {
+  background-color: #ffcaa6;
+  height: 40%;
+  width: 100%;
+  border-radius: .5rem;
+  transition: .3s ease;
+}
+
+.main__h3, .main__p{
+  padding-top: 10%;
+}
+
+.main__button{
+  background-color: white;
+  color: black;
+  border-radius: 10em;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 1em 2em;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border: 1px solid black;
+  box-shadow: 0 0 0 0 black;
+  margin-right: 14px;
+  margin-top: 10px;
+}
+.main__button:hover {
+  transform: translateY(-4px) translateX(-2px);
+  box-shadow: 2px 5px 0 0 black;
+}
+
+.main__button:active {
+  transform: translateY(-4px) translateX(-2px);
+  box-shadow: 2px 5px 0 0 black;
+}
+
+.main__button:disabled{
+  background-color: #f5f5f5;
+  color: #d3d3d3;
+  border: 1px solid #d3d3d3;
+  cursor: not-allowed;
+}
+
+.main__card__button {
+  margin-left: 33rem;
+}

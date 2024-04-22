@@ -4,7 +4,7 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit($event)" class="auth__form">
   <app-title title="Login" class="form__title"></app-title>
   <div class="form__container">
-      <app-input type="text" placeholder="Email" formControlName="username" class="container__input"><span class="container__span"></span></app-input>
+      <app-input type="text" placeholder="Username" formControlName="username" class="container__input"><span class="container__span"></span></app-input>
       <app-input type="password" placeholder="Password" formControlName="password" class="container__input"><span class="container__span"></span></app-input>
       @if(form.valid){
         <button type="submit" class="container__button">Login</button>

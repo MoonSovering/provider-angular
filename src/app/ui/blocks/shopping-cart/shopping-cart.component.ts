@@ -62,6 +62,7 @@ export class ShoppingCartComponent {
   }
 
   emitCartItems(): void {
+    console.log(this.cartItems);
     this.captureProduct.emit(this.cartItems);
   }
 }

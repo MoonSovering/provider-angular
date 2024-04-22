@@ -7,10 +7,10 @@
   <h2>There are no books here!. please create one :D</h2>
 }@else {
   <section class="main__section">
-    <div class="section-card">
-      <p>{{renderProduct.product.price}}</p>
-      <h3>{{renderProduct.product.name}}</h3>
-      <img src="{{renderProduct.img}}" alt="{{renderProduct.alt}}"/>
+    <div class="section__card">
+      <img src="{{renderProduct.img}}" alt="{{renderProduct.alt}}" class="section__img"/>
+      <h3 class="section__h3">{{renderProduct.product.name}}</h3>
+      <p class="section__p">${{renderProduct.product.price}}</p>
     </div>
   </section>
 }
